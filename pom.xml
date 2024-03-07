@@ -15,7 +15,7 @@
 
 	<groupId>best.skn</groupId>
 	<artifactId>skn-spring-mail</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 
 	<name>skn-spring-mail</name>
 	<description>A Simple Mail Service Library For Java Reactive Spring Boot</description>
@@ -118,20 +118,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
