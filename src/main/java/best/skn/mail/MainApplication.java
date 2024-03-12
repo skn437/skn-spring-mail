@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Main Class
  *
  * @author SKN
- * @version 1.2.1
+ * @version 1.2.2
  * @since 07-03-2024
  * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi

@@ -59,7 +59,7 @@
 > <dependency>
 >  <groupId>best.skn</groupId>
 >  <artifactId>skn-spring-mail</artifactId>
->  <version>1.2.0</version>
+>  <version>1.2.2</version>
 > </dependency>
 > ```
 
@@ -102,14 +102,16 @@
 
 ```json
 {
-	"from": "<sender email address>", // Required Field
-	"to": "<receiver email address>", // Required Field
-	"subject": "<mail subject>", // Required Field
-	"body": "<mail body>", // Required Field
-	"filePath": "<attachment file path>", // Required but only with attachment ones
-	"templateName": "<html template name>" // Required but only for HTML template ones
+	"from": "<sender email address>",
+	"to": "<receiver email address>",
+	"subject": "<mail subject>",
+	"body": "<mail body>",
+	"filePath": "<attachment file path>",
+	"templateName": "<html template name>"
 }
 ```
+
+### In the `json` request body, the fields: `from`, `to`, `subject` & `body` are hard requirements to pass
 
 ### For `filePath` & `templateName` fields, if any of those are not sent as they are not hard requirements, the default value sent to the API will be `null`
 
