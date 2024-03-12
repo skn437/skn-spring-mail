@@ -6,9 +6,9 @@
 
 ## **_JavaDocs:_**
 
-### Read the Javadoc for `MailSenderService` API: [MailSenderService API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/services/MailSenderService.html)
+### Read the Javadoc for the main Service API: [MailSenderService API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/services/MailSenderService.html)
 
-### Read the Javadoc for `MailSenderRequestBody` API: [MailSenderRequestBody API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/entities/MailSenderRequestBody.html)
+### Read the Javadoc for the main Entity API: [MailSenderRequestBody API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/entities/MailSenderRequestBody.html)
 
 &nbsp;
 
@@ -16,7 +16,7 @@
 
 ### This is a simple Java Reactive Spring Boot Library for sending mails
 
-### I made this library so that I can use it in most of my spring boot projects without writing the same codes over and over again
+### I made this library so that I can use it in most of my spring boot reactive projects without writing the same codes over and over again
 
 ### The main API Classes of this library are `MailSenderService` which has 4 methods to send mails & `MailSenderRequestBody` which holds the blueprint for `@RequestBody` annotated params in controllers
 
@@ -59,7 +59,7 @@
 > <dependency>
 >  <groupId>best.skn</groupId>
 >  <artifactId>skn-spring-mail</artifactId>
->  <version>1.1.0</version>
+>  <version>1.2.0</version>
 > </dependency>
 > ```
 
@@ -98,9 +98,24 @@
 > }
 > ```
 
+### When requesting the API from `Postman` or `Frontend Framework`, the request body `json` format can be like the following
+
+```json
+{
+	"from": "<sender email address>", // Required Field
+	"to": "<receiver email address>", // Required Field
+	"subject": "<mail subject>", // Required Field
+	"body": "<mail body>", // Required Field
+	"filePath": "<attachment file path>", // Required but only with attachment ones
+	"templateName": "<html template name>" // Required but only for HTML template ones
+}
+```
+
+### For `filePath` & `templateName` fields, if any of those are not sent as they are not hard requirements, the default value sent to the API will be `null`
+
 &nbsp;
 
 ## **_Dedicated To:_**
 
-- 🌹`Tanjila Hasan Trina`: The one & only love of my life. She is the reason my life got a meaning. I'm really blessed that she came into my life.
+- 🌹`Tanjila Hasan Trina`: The one & only love of my life. She is the reason my life got a meaning. I'm really blessed that she came into my life. Though we are not present in the same place now, but my heart feels her presence always. No other girl can replace her in my life ever, it's a promise to myself and I know it.
 - 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life. I can't thank them enough for always treasuring me a lot.

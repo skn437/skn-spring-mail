@@ -1,9 +1,14 @@
 package best.skn.mail.services;
 
+//? Java::Library
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -14,14 +19,19 @@ import org.thymeleaf.context.Context;
 import reactor.core.publisher.Mono;
 
 /**
- * Mail sender service class
+ * Mail Sender Service Class
  *
  * @author SKN
- * @version 1.0.0
- * @since 07-03-2024
+ * @version 1.2.0
+ * @since 2024-03-07
+ * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi
  */
 @Service
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class MailSenderService implements MailSenderInterface {
 
   /**
@@ -66,9 +76,9 @@ public class MailSenderService implements MailSenderInterface {
 
       this.mailSender.send(message);
 
-      return Mono.just(MailSenderMessage.sendMailSuccess());
+      return MailSenderMessage.sendMailSuccess();
     } catch (MessagingException e) {
-      return Mono.just(MailSenderMessage.exceptionError(e.getMessage()));
+      return MailSenderMessage.exceptionError(e.getMessage());
     }
   }
 
@@ -108,9 +118,9 @@ public class MailSenderService implements MailSenderInterface {
 
       this.mailSender.send(message);
 
-      return Mono.just(MailSenderMessage.sendMailWithAttachmentSuccess());
+      return MailSenderMessage.sendMailWithAttachmentSuccess();
     } catch (MessagingException e) {
-      return Mono.just(MailSenderMessage.exceptionError(e.getMessage()));
+      return MailSenderMessage.exceptionError(e.getMessage());
     }
   }
 
@@ -153,9 +163,9 @@ public class MailSenderService implements MailSenderInterface {
 
       this.mailSender.send(message);
 
-      return Mono.just(MailSenderMessage.sendMailWithHtmlTemplateSuccess());
+      return MailSenderMessage.sendMailWithHtmlTemplateSuccess();
     } catch (MessagingException e) {
-      return Mono.just(MailSenderMessage.exceptionError(e.getMessage()));
+      return MailSenderMessage.exceptionError(e.getMessage());
     }
   }
 
@@ -202,11 +212,9 @@ public class MailSenderService implements MailSenderInterface {
 
       this.mailSender.send(message);
 
-      return Mono.just(
-        MailSenderMessage.sendMailWithHtmlTemplateAndAttachmentSuccess()
-      );
+      return MailSenderMessage.sendMailWithHtmlTemplateAndAttachmentSuccess();
     } catch (MessagingException e) {
-      return Mono.just(MailSenderMessage.exceptionError(e.getMessage()));
+      return MailSenderMessage.exceptionError(e.getMessage());
     }
   }
 }
