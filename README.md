@@ -75,13 +75,26 @@
 > import best.skn.mail.services.MailSenderService;
 > ```
 
+### First create a configuration class, and construct a bean
+
+> ```java
+> @Configuration
+> public class MailSenderConfiguration {
+> 	@Bean
+> 	MailSenderService mailSenderService() {
+> 		MailSenderService mailSender = new MailSenderService();
+> 		return mailSender;
+> 	}
+> }
+> ```
+
 ### Inside your Java Code, import the package like this for `MailSenderRequestBody`
 
 > ```java
 > import best.skn.mail.entities.MailSenderRequestBody;
 > ```
 
-### In controller POST requests, use it like the following
+### In controller POST requests, use it like the following (Just an example)
 
 > ```java
 > @Autowired
@@ -89,12 +102,12 @@
 >
 > @PostMapping
 > public Mono<String> sendMail(@RequestBody MailSenderRequestBody requestBody) throws MessagingException {
->  return this.mailSender.sendMail(
->     requestBody.getFrom(),
->     requestBody.getTo(),
->     requestBody.getSubject(),
->     requestBody.getBody()
->   );
+> 	return this.mailSender.sendMail(
+> 		requestBody.getFrom(),
+> 		requestBody.getTo(),
+> 		requestBody.getSubject(),
+> 		requestBody.getBody()
+> 	);
 > }
 > ```
 
