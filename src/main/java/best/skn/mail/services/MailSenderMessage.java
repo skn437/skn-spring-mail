@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
  * Mail Sender Output Message Class
  *
  * @author SKN
- * @version 1.2.0
+ * @version 1.2.2
  * @since 2024-03-07
  * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi
