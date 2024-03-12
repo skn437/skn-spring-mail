@@ -55,74 +55,74 @@
 
 ### For `Maven`, inside `dependencies` tag of `pom.xml`, copy the following
 
-```xml
-<dependency>
-	<groupId>best.skn</groupId>
-	<artifactId>skn-spring-mail</artifactId>
-	<version>1.2.2</version>
-</dependency>
-```
+> ```xml
+> <dependency>
+> 	<groupId>best.skn</groupId>
+> 	<artifactId>skn-spring-mail</artifactId>
+> 	<version>1.2.2</version>
+> </dependency>
+> ```
 
 ### Write the following in the terminal
 
-```zsh
-mvn install
-```
+> ```zsh
+> mvn install
+> ```
 
 ### Inside your Java Code, import the package like this for `MailSenderService`
 
-```java
-import best.skn.mail.services.MailSenderService;
-```
+> ```java
+> import best.skn.mail.services.MailSenderService;
+> ```
 
 ### First create a configuration class, and construct a bean
 
-```java
-@Configuration
-public class MailSenderConfiguration {
-	@Bean
-	MailSenderService mailSenderService() {
-		MailSenderService mailSender = new MailSenderService();
-		return mailSender;
-	}
-}
-```
+> ```java
+> @Configuration
+> public class MailSenderConfiguration {
+> 	@Bean
+> 	MailSenderService mailSenderService() {
+> 		MailSenderService mailSender = new MailSenderService();
+> 		return mailSender;
+> 	}
+> }
+> ```
 
 ### Inside your Java Code, import the package like this for `MailSenderRequestBody`
 
-```java
-import best.skn.mail.entities.MailSenderRequestBody;
-```
+> ```java
+> import best.skn.mail.entities.MailSenderRequestBody;
+> ```
 
 ### In controller POST requests, use it like the following (Just an example)
 
-```java
-@Autowired
-private MailSenderService mailSender;
-
-@PostMapping
-public Mono<String> sendMail(@RequestBody MailSenderRequestBody requestBody) throws MessagingException {
- 	return this.mailSender.sendMail(
- 		requestBody.getFrom(),
- 		requestBody.getTo(),
- 		requestBody.getSubject(),
- 		requestBody.getBody()
- 	);
-}
-```
+> ```java
+> @Autowired
+> private MailSenderService mailSender;
+>
+> @PostMapping
+> public Mono<String> sendMail(@RequestBody MailSenderRequestBody requestBody) throws MessagingException {
+>  	return this.mailSender.sendMail(
+>  		requestBody.getFrom(),
+>  		requestBody.getTo(),
+>  		requestBody.getSubject(),
+>  		requestBody.getBody()
+>  	);
+> }
+> ```
 
 ### When requesting the API from `Postman` or `Frontend Framework`, the request body `json` format can be like the following
 
-```json
-{
-	"from": "<sender email address>",
-	"to": "<receiver email address>",
-	"subject": "<mail subject>",
-	"body": "<mail body>",
-	"filePath": "<attachment file path>",
-	"templateName": "<html template name>"
-}
-```
+> ```json
+> {
+> 	"from": "<sender email address>",
+> 	"to": "<receiver email address>",
+> 	"subject": "<mail subject>",
+> 	"body": "<mail body>",
+> 	"filePath": "<attachment file path>",
+> 	"templateName": "<html template name>"
+> }
+> ```
 
 ### In the `json` request body, the fields: `from`, `to`, `subject` & `body` are hard requirements to pass
 
