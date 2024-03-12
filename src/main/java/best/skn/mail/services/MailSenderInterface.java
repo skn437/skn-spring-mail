@@ -1,16 +1,18 @@
 package best.skn.mail.services;
 
+//? Java::Library
 import jakarta.mail.MessagingException;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.Context;
 import reactor.core.publisher.Mono;
 
 /**
- * Mail sender service interface
+ * Mail Sender Service Interface
  *
  * @author SKN
- * @version 1.0.0
- * @since 07-03-2024
+ * @version 1.2.0
+ * @since 2024-03-07
+ * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi
  */
 @Component

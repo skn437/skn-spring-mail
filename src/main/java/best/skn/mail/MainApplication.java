@@ -1,14 +1,16 @@
 package best.skn.mail;
 
-import best.skn.utils.color.Color;
+//? Java::Library
+import best.skn.utils.message.Message;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Main Class for mail package
+ * Main Class
  *
  * @author SKN
- * @version 1.0.0
+ * @version 1.2.0
  * @since 07-03-2024
+ * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi
  */
 @SpringBootApplication
@@ -22,9 +24,8 @@ public class MainApplication {
    */
   public static void main(String[] args) {
     System.out.printf(
-      "%s 👋 \n",
-      Color.blue(
-        "Hello! I Am Wang So/SKN! Welcome To My Java Reactive Spring Boot Mail Library."
+      Message.successConsole(
+        "Spring Boot Reactive Mail Service Initiated Successfully!"
       )
     );
   }

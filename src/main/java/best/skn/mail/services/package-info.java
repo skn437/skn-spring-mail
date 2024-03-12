@@ -1,9 +1,10 @@
 /**
- * Mail Services Package for this Java Spring Boot Library
+ * Mail Services Package
  *
  * @author SKN
- * @version 1.0.0
- * @since 07-03-2024
+ * @version 1.2.0
+ * @since 2024-03-07
+ * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi
  */
 package best.skn.mail.services;

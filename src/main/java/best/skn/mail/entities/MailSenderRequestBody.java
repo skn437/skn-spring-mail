@@ -1,16 +1,22 @@
 package best.skn.mail.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+//? Java::Library
 import org.springframework.stereotype.Component;
 
 /**
  * Mail sender request body class for @RequestBody annotated params in controllers
  *
  * @author SKN
- * @version 1.0.0
- * @since 07-03-2024
+ * @version 1.2.0
+ * @since 2024-03-07
+ * @use.case Spring Boot Reactive
  * @dedicated.to Trina, Logno and Atoshi
  */
 @Component
+@AllArgsConstructor
+@NoArgsConstructor
 public class MailSenderRequestBody implements MailSenderRequestBodyInterface {
 
   /**
@@ -49,40 +55,6 @@ public class MailSenderRequestBody implements MailSenderRequestBodyInterface {
    * @since v1.0.0
    */
   private String templateName;
-
-  /**
-   * no arg constructor for mail sender request body class for @RequestBody annotated params in controllers
-   *
-   * @since v1.0.0
-   */
-  public MailSenderRequestBody() {}
-
-  /**
-   * All args constructor for mail sender request body class for @RequestBody annotated params in controllers
-   *
-   * @param from a String containing the mail sender email address
-   * @param to a String containing the mail receiver email address
-   * @param subject a String containing the mail subject
-   * @param body a String containing the mail body
-   * @param filePath a String containing the file path to the attachment
-   * @param templateName a String containing the template name for the HTML template
-   * @since v1.0.0
-   */
-  public MailSenderRequestBody(
-    String from,
-    String to,
-    String subject,
-    String body,
-    String filePath,
-    String templateName
-  ) {
-    this.from = from;
-    this.to = to;
-    this.subject = subject;
-    this.body = body;
-    this.filePath = filePath;
-    this.templateName = templateName;
-  }
 
   @Override
   public String getFrom() {

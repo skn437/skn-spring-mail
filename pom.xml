@@ -15,7 +15,7 @@
 
 	<groupId>best.skn</groupId>
 	<artifactId>skn-spring-mail</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 
 	<name>skn-spring-mail</name>
 	<description>A Simple Mail Service Library For Java Reactive Spring Boot</description>
@@ -60,7 +60,7 @@
 	</distributionManagement>
 
 	<dependencies>
-		<!-- Primary Packages -->
+		<!-- Primary -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
@@ -76,7 +76,7 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
-		<!-- Secondary Packages -->
+		<!-- Secondary -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -108,11 +108,17 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Miscellaneous Packages -->
+		<!-- Miscellaneous -->
 		<dependency>
 			<groupId>best.skn</groupId>
 			<artifactId>skn-java-color</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>best.skn</groupId>
+			<artifactId>skn-java-message</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 
@@ -157,6 +163,12 @@
 					<doclint>all,-missing</doclint>
 
 					<tags>
+						<tag>
+							<name>use.case</name>
+							<placement>a</placement>
+							<head>Use Case:</head>
+						</tag>
+
 						<tag>
 							<name>dedicated.to</name>
 							<placement>a</placement>
