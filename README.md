@@ -57,9 +57,9 @@
 
 > ```xml
 > <dependency>
-> 	<groupId>best.skn</groupId>
-> 	<artifactId>skn-spring-mail</artifactId>
-> 	<version>1.2.2</version>
+>   <groupId>best.skn</groupId>
+>   <artifactId>skn-spring-mail</artifactId>
+>   <version>1.2.2</version>
 > </dependency>
 > ```
 
@@ -80,11 +80,11 @@
 > ```java
 > @Configuration
 > public class MailSenderConfiguration {
-> 	@Bean
-> 	MailSenderService mailSenderService() {
-> 		MailSenderService mailSender = new MailSenderService();
-> 		return mailSender;
-> 	}
+>   @Bean
+>   MailSenderService mailSenderService() {
+>     MailSenderService mailSenderService = new MailSenderService();
+>     return mailSenderService;
+>   }
 > }
 > ```
 
@@ -102,12 +102,12 @@
 >
 > @PostMapping
 > public Mono<String> sendMail(@RequestBody MailSenderRequestBody requestBody) throws MessagingException {
->  	return this.mailSender.sendMail(
->  		requestBody.getFrom(),
->  		requestBody.getTo(),
->  		requestBody.getSubject(),
->  		requestBody.getBody()
->  	);
+>   return this.mailSender.sendMail(
+>     requestBody.getFrom(),
+>     requestBody.getTo(),
+>     requestBody.getSubject(),
+>     requestBody.getBody()
+>   );
 > }
 > ```
 
