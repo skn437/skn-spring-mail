@@ -1,6 +1,6 @@
 # SKN Reactive Spring Boot Mail Library
 
-[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/1.2.2/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/1.2.2) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/1.2.3/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/1.2.3) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 &nbsp;
 
@@ -69,23 +69,18 @@
 > mvn install
 > ```
 
+### First create a configuration class
+
+> ```java
+> @Configuration
+> @Import(best.skn.mail.configurations.MailSenderConfiguration.class)
+> public class MailSenderConfiguration {}
+> ```
+
 ### Inside your Java Code, import the package like this for `MailSenderService`
 
 > ```java
 > import best.skn.mail.services.MailSenderService;
-> ```
-
-### First create a configuration class, and construct a bean
-
-> ```java
-> @Configuration
-> public class MailSenderConfiguration {
->   @Bean
->   MailSenderService mailSenderService() {
->     MailSenderService mailSenderService = new MailSenderService();
->     return mailSenderService;
->   }
-> }
 > ```
 
 ### Inside your Java Code, import the package like this for `MailSenderRequestBody`
