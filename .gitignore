@@ -32,3 +32,4 @@ build/
 ### Spring Boot ###
 application.yaml
 application.properties
+.apidocs
