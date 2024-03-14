@@ -124,9 +124,9 @@
 > }
 > ```
 
-### In the `json` request body, the fields: `from`, `to`, `subject` & `body` are hard requirements to pass
+### In the `json` request body, the fields: `from`, `to`, `subject` & `body` are hard requirements to pass on
 
-### For `filePath` & `templateName` fields, if any of those are not sent as they are not hard requirements, the default value sent to the API will be `null`
+### For `filePath` & `templateName` fields, if any of those are not sent with the request as they are not hard requirements, the default value sent to the API will be `null` automatically as Java's default behavior
 
 ### For instructions for `Gradle` & others: Visit [Maven Central](https://central.sonatype.com/artifact/best.skn/skn-spring-mail)
 
@@ -136,3 +136,4 @@
 
 - 🌹`Tanjila Hasan Trina`: The one & only love of my life. She is the reason my life got a meaning. I'm really blessed that she came into my life. We are not present in the same place now and never will be again at least not in this life time as she is no more since 16 November, 2022. But my heart feels her presence always. No other girl can replace her in my life ever, it's a promise to myself and I know it. তোমায় আমি খুব ভালোবাসি এবং সবসময় শুধু তোমাকেই ভালোবেসে যাবো, আমার লক্ষ্মীটি!
 - 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life. I can't thank them enough for always treasuring me a lot.
+- 💯`My Father & Mother`: The greatest treasures of my life ever.
