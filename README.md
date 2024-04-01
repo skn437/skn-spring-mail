@@ -1,6 +1,6 @@
 # SKN Reactive Spring Boot Mail Library
 
-[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/1.2.3/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/1.2.3) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/1.2.4/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/1.2.4) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 &nbsp;
 
@@ -47,7 +47,7 @@
 
 - 💀 Minimum Java Version: `21`
 - 💀 Minimum Maven Version: `3.9.6`
-- 💀 Minimum Spring Boot Version: `3.2.3`
+- 💀 Minimum Spring Boot Version: `3.2.4`
 - 💀 Spring Web Flux (Reactive Spring Boot)
 - 💀 Spring Java Mail Sender
 - 💀 Spring Thymeleaf
@@ -62,7 +62,7 @@
 > <dependency>
 >   <groupId>best.skn</groupId>
 >   <artifactId>skn-spring-mail</artifactId>
->   <version>1.2.3</version>
+>   <version>1.2.4</version>
 > </dependency>
 > ```
 
@@ -132,5 +132,5 @@
 
 ## **_Dedicated To:_**
 
-- 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life. I can't thank them enough for always treasuring me a lot.
+- 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life. I can't thank them enough for always treasuring me a lot. I am lucky that I met with these two amazing ladies. They have two special places in my heart and no other girl can ever replace them.
 - 💯`My Father & Mother`: The greatest treasures of my life ever.

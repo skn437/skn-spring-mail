@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
  * Mail sender configuration class for auto-configuring mail sender service
  *
  * @author SKN
- * @version 1.2.3
+ * @version 1.2.4
  * @since 2024-03-15
  * @use.case Spring Boot Reactive
- * @dedicated.to Trina, Logno, Atoshi and My Parents
+ * @dedicated.to Logno, Atoshi and My Parents
  */
 @Configuration
 public class MailSenderConfiguration {

@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
  * Mail sender request body interface for @RequestBody annotated params in controllers
  *
  * @author SKN
- * @version 1.2.3
+ * @version 1.2.4
  * @since 2024-03-07
  * @use.case Spring Boot Reactive
- * @dedicated.to Trina, Logno, Atoshi and My Parents
+ * @dedicated.to Logno, Atoshi and My Parents
  */
 @Component
 public interface MailSenderRequestBodyInterface {
