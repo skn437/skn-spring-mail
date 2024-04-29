@@ -1,220 +1,78 @@
 package best.skn.mail.services;
 
+//? Java::Source
+import best.skn.mail.models.MailSenderHtmlTemplate;
+import best.skn.mail.models.MailSenderInputStream;
+import best.skn.mail.models.MailSenderRequestInfo;
 //? Java::Library
 import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
-import java.io.File;
-import java.nio.charset.StandardCharsets;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Service;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
+import java.io.IOException;
 import reactor.core.publisher.Mono;
 
 /**
- * Mail Sender Service Class
+ * Mail Sender Service Interface
  *
- * @author SKN
- * @version 1.2.4
- * @since 2024-03-07
+ * @author SKN Shukhan
+ * @version 2.0.0
+ * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
  */
-@Service
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class MailSenderService implements MailSenderInterface {
+public interface MailSenderService {
+  /**
+   * Method to send basic mail
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @return a Mono of String as a response
+   * @throws MessagingException
+   * @since v2.0.0
+   */
+  public Mono<String> sendMail(MailSenderRequestInfo info)
+    throws MessagingException;
 
   /**
-   * Private Java Mail Sender object
+   * Method to send basic mail with attachment
    *
-   * @since v1.0.0
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param stream MailSenderInputStream object that contains all the information regarding input stream
+   * @return a Mono of String as a response
+   * @throws MessagingException
+   * @throws IOException
+   * @since v2.0.0
    */
-  @Autowired
-  private JavaMailSender mailSender;
-
-  /**
-   * private Thymeleaf Template Engine object
-   *
-   * @since v1.0.0
-   */
-  @Autowired
-  private TemplateEngine templateEngine;
-
-  @Override
-  public Mono<String> sendMail(
-    String from,
-    String to,
-    String subject,
-    String body
-  ) throws MessagingException {
-    try {
-      if (from == null || to == null || subject == null || body == null) {
-        return Mono.just(MailSenderMessage.parameterError());
-      }
-
-      MimeMessage message = this.mailSender.createMimeMessage();
-      MimeMessageHelper helper = new MimeMessageHelper(
-        message,
-        MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
-        StandardCharsets.UTF_8.name()
-      );
-
-      helper.setFrom(from);
-      helper.setTo(to);
-      helper.setSubject(subject);
-      helper.setText(body);
-
-      this.mailSender.send(message);
-
-      return MailSenderMessage.sendMailSuccess();
-    } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
-    }
-  }
-
-  @Override
   public Mono<String> sendMailWithAttachment(
-    String from,
-    String to,
-    String subject,
-    String body,
-    String filePath
-  ) throws MessagingException {
-    try {
-      if (
-        from == null ||
-        to == null ||
-        subject == null ||
-        body == null ||
-        filePath == null
-      ) {
-        return Mono.just(MailSenderMessage.parameterError());
-      }
+    MailSenderRequestInfo info,
+    MailSenderInputStream stream
+  ) throws MessagingException, IOException;
 
-      FileSystemResource file = new FileSystemResource(new File(filePath));
-
-      MimeMessage message = this.mailSender.createMimeMessage();
-      MimeMessageHelper helper = new MimeMessageHelper(
-        message,
-        MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
-        StandardCharsets.UTF_8.name()
-      );
-
-      helper.setFrom(from);
-      helper.setTo(to);
-      helper.setSubject(subject);
-      helper.setText(body);
-      helper.addAttachment(file.getFilename(), file);
-
-      this.mailSender.send(message);
-
-      return MailSenderMessage.sendMailWithAttachmentSuccess();
-    } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
-    }
-  }
-
-  @Override
+  /**
+   * Method to send mail with HTML template
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param template MailSenderHtmlTemplate object that contains all the information regarding thymeleaf
+   * @return a Mono of String as a response
+   * @throws MessagingException
+   * @since v2.0.0
+   */
   public Mono<String> sendMailWithHtmlTemplate(
-    String from,
-    String to,
-    String subject,
-    String templateName,
-    Context context
-  ) throws MessagingException {
-    try {
-      if (
-        from == null ||
-        to == null ||
-        subject == null ||
-        templateName == null ||
-        context == null
-      ) {
-        return Mono.just(MailSenderMessage.parameterError());
-      }
+    MailSenderRequestInfo info,
+    MailSenderHtmlTemplate template
+  ) throws MessagingException;
 
-      String htmlContent = this.templateEngine.process(templateName, context);
-
-      if (htmlContent == null) {
-        return Mono.just(MailSenderMessage.htmlContentError());
-      }
-
-      MimeMessage message = this.mailSender.createMimeMessage();
-      MimeMessageHelper helper = new MimeMessageHelper(
-        message,
-        MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
-        StandardCharsets.UTF_8.name()
-      );
-
-      helper.setFrom(from);
-      helper.setTo(to);
-      helper.setSubject(subject);
-      helper.setText(htmlContent, true);
-
-      this.mailSender.send(message);
-
-      return MailSenderMessage.sendMailWithHtmlTemplateSuccess();
-    } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
-    }
-  }
-
-  @Override
+  /**
+   * Method to send mail with HTML template and attachment
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param template MailSenderHtmlTemplate object that contains all the information regarding thymeleaf
+   * @param stream MailSenderInputStream object that contains all the information regarding input stream
+   * @return a Mono of String as a response
+   * @throws MessagingException
+   * @throws IOException
+   * @since v2.0.0
+   */
   public Mono<String> sendMailWithHtmlTemplateAndAttachment(
-    String from,
-    String to,
-    String subject,
-    String templateName,
-    Context context,
-    String filePath
-  ) throws MessagingException {
-    try {
-      if (
-        from == null ||
-        to == null ||
-        subject == null ||
-        templateName == null ||
-        context == null ||
-        filePath == null
-      ) {
-        return Mono.just(MailSenderMessage.parameterError());
-      }
-
-      String htmlContent = this.templateEngine.process(templateName, context);
-      FileSystemResource file = new FileSystemResource(new File(filePath));
-
-      if (htmlContent == null) {
-        return Mono.just(MailSenderMessage.htmlContentError());
-      }
-
-      MimeMessage message = this.mailSender.createMimeMessage();
-      MimeMessageHelper helper = new MimeMessageHelper(
-        message,
-        MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
-        StandardCharsets.UTF_8.name()
-      );
-
-      helper.setFrom(from);
-      helper.setTo(to);
-      helper.setSubject(subject);
-      helper.setText(htmlContent, true);
-      helper.addAttachment(file.getFilename(), file);
-
-      this.mailSender.send(message);
-
-      return MailSenderMessage.sendMailWithHtmlTemplateAndAttachmentSuccess();
-    } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
-    }
-  }
+    MailSenderRequestInfo info,
+    MailSenderHtmlTemplate template,
+    MailSenderInputStream stream
+  ) throws MessagingException, IOException;
 }
