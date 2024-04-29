@@ -1,8 +1,10 @@
 package best.skn.mail.services.impls;
 
+//? Java::Source
 import best.skn.mail.models.MailSenderHtmlTemplate;
 import best.skn.mail.models.MailSenderInputStream;
 import best.skn.mail.models.MailSenderRequestInfo;
+//? Java::Library
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import java.io.File;
@@ -16,13 +18,49 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+/**
+ * Mail Sender Initializer Class
+ *
+ * @author SKN Shukhan
+ * @version 2.0.0
+ * @since 2024-05-29
+ * @use.case Spring Boot Reactive
+ * @dedicated.to Logno, Atoshi and My Parents
+ */
 public class MailSenderInitializer {
 
+  /**
+   * Private Java Mail Sender property
+   *
+   * @since v2.0.0
+   */
   private JavaMailSender mailSender;
+  /**
+   * private Thymeleaf Template Engine property
+   *
+   * @since v2.0.0
+   */
   private TemplateEngine templateEngine;
+  /**
+   * private Mime Message property
+   *
+   * @since v2.0.0
+   */
   private MimeMessage message;
+  /**
+   * private Mime Message Helper property
+   *
+   * @since v2.0.0
+   */
   private MimeMessageHelper helper;
 
+  /**
+   * Constructor for this class with one parameter
+   *
+   * @param mailSender Java Mail Sender object for sending mails
+   * @throws MessagingException
+   * @since v2.0.0
+   */
   public MailSenderInitializer(JavaMailSender mailSender)
     throws MessagingException {
     this.mailSender = mailSender;
@@ -36,6 +74,14 @@ public class MailSenderInitializer {
       );
   }
 
+  /**
+   * Constructor for this class with two parameters
+   *
+   * @param mailSender Java Mail Sender object for sending mails
+   * @param templateEngine Thmeleaf Template Engine object for processing HTML templates
+   * @throws MessagingException
+   * @since v2.0.0
+   */
   public MailSenderInitializer(
     JavaMailSender mailSender,
     TemplateEngine templateEngine
@@ -44,6 +90,14 @@ public class MailSenderInitializer {
     this.templateEngine = templateEngine;
   }
 
+  /**
+   * Private method to set the required info to send a mail and then send it
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param isHtml Boolean parameter to set if a mail body will contain HTML template or not
+   * @throws MessagingException
+   * @since v2.0.0
+   */
   private void sendMessage(MailSenderRequestInfo info, boolean isHtml)
     throws MessagingException {
     this.helper.setFrom(info.getFrom());
@@ -54,11 +108,26 @@ public class MailSenderInitializer {
     this.mailSender.send(this.message);
   }
 
+  /**
+   * Protected method to send basic mail
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @throws MessagingException
+   * @since v2.0.0
+   */
   protected void sendMail(MailSenderRequestInfo info)
     throws MessagingException {
     this.sendMessage(info, false);
   }
 
+  /**
+   * Private method to set the required configuration regarding file attachment
+   *
+   * @param stream MailSenderInputStream object that contains all the information regarding input stream
+   * @throws MessagingException
+   * @throws IOException
+   * @since v2.0.0
+   */
   private void streamAttachement(MailSenderInputStream stream)
     throws MessagingException, IOException {
     File file = new File(stream.getFileLocation());
@@ -73,15 +142,31 @@ public class MailSenderInitializer {
     this.helper.addAttachment(fileSystemResource.getFilename(), file);
   }
 
+  /**
+   * Protected method to send mail with attachment
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param stream MailSenderInputStream object that contains all the information regarding input stream
+   * @throws MessagingException
+   * @throws IOException
+   * @since v2.0.0
+   */
   protected void sendMailWithAttachment(
     MailSenderRequestInfo info,
     MailSenderInputStream stream
   ) throws MessagingException, IOException {
     this.streamAttachement(stream);
-
-    this.sendMessage(info, false);
+    this.sendMail(info);
   }
 
+  /**
+   * Protected method to send mail with HTML template
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param template MailSenderHtmlTemplate object that contains all the information regarding thymeleaf
+   * @throws MessagingException
+   * @since v2.0.0
+   */
   protected void sendMailWithHtmlTemplate(
     MailSenderRequestInfo info,
     MailSenderHtmlTemplate template
@@ -97,6 +182,16 @@ public class MailSenderInitializer {
     this.sendMessage(info, true);
   }
 
+  /**
+   * Protected method to send mail with HTML template and attachment
+   *
+   * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
+   * @param template MailSenderHtmlTemplate object that contains all the information regarding thymeleaf
+   * @param stream MailSenderInputStream object that contains all the information regarding input stream
+   * @throws MessagingException
+   * @throws IOException
+   * @since v2.0.0
+   */
   protected void sendMailWithHtmlTemplateAndAttachment(
     MailSenderRequestInfo info,
     MailSenderHtmlTemplate template,

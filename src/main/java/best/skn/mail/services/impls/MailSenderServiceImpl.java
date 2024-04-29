@@ -1,5 +1,6 @@
 package best.skn.mail.services.impls;
 
+//? Java::Source
 import best.skn.mail.models.MailSenderHtmlTemplate;
 import best.skn.mail.models.MailSenderInputStream;
 import best.skn.mail.models.MailSenderRequestInfo;
@@ -14,10 +15,10 @@ import org.thymeleaf.TemplateEngine;
 import reactor.core.publisher.Mono;
 
 /**
- * Mail Sender Service Class
+ * Mail Sender Service Implementation Class
  *
- * @author SKN
- * @version 1.2.4
+ * @author SKN Shukhan
+ * @version 2.0.0
  * @since 2024-03-07
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
@@ -28,7 +29,7 @@ public class MailSenderServiceImpl implements MailSenderService {
   /**
    * Private Java Mail Sender object
    *
-   * @since v1.0.0
+   * @since v2.0.0
    */
   @Autowired
   private JavaMailSender mailSender;
@@ -36,7 +37,7 @@ public class MailSenderServiceImpl implements MailSenderService {
   /**
    * private Thymeleaf Template Engine object
    *
-   * @since v1.0.0
+   * @since v2.0.0
    */
   @Autowired
   private TemplateEngine templateEngine;
@@ -62,7 +63,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 
       return MailSenderMessage.sendMailSuccess();
     } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
+      return MailSenderMessage.exceptionErrorMessaging(e.getMessage());
     }
   }
 
@@ -90,9 +91,9 @@ public class MailSenderServiceImpl implements MailSenderService {
 
       return MailSenderMessage.sendMailWithAttachmentSuccess();
     } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
+      return MailSenderMessage.exceptionErrorMessaging(e.getMessage());
     } catch (IOException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
+      return MailSenderMessage.exceptionErrorIO(e.getMessage());
     }
   }
 
@@ -122,7 +123,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 
       return MailSenderMessage.sendMailWithHtmlTemplateSuccess();
     } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
+      return MailSenderMessage.exceptionErrorMessaging(e.getMessage());
     }
   }
 
@@ -158,9 +159,9 @@ public class MailSenderServiceImpl implements MailSenderService {
 
       return MailSenderMessage.sendMailWithHtmlTemplateAndAttachmentSuccess();
     } catch (MessagingException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
+      return MailSenderMessage.exceptionErrorMessaging(e.getMessage());
     } catch (IOException e) {
-      return MailSenderMessage.exceptionError(e.getMessage());
+      return MailSenderMessage.exceptionErrorIO(e.getMessage());
     }
   }
 }
