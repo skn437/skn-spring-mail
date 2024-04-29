@@ -1,7 +1,7 @@
 package best.skn.mail;
 
 //? Java::Library
-import best.skn.utils.message.Message;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @dedicated.to Logno, Atoshi and My Parents
  */
 @SpringBootApplication
-public class MainApplication {
+public class Application {
 
   /**
    * Static Method `main`
@@ -23,10 +23,6 @@ public class MainApplication {
    * @since v1.0.0
    */
   public static void main(String[] args) {
-    System.out.printf(
-      Message.successConsole(
-        "Spring Boot Reactive Mail Service Initiated Successfully!"
-      )
-    );
+    SpringApplication.run(Application.class, args);
   }
 }

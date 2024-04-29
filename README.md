@@ -47,7 +47,7 @@
 
 - 💀 Minimum Java Version: `21`
 - 💀 Minimum Maven Version: `3.9.6`
-- 💀 Minimum Spring Boot Version: `3.2.4`
+- 💀 Minimum Spring Boot Version: `3.2.5`
 - 💀 Spring Web Flux (Reactive Spring Boot)
 - 💀 Spring Java Mail Sender
 - 💀 Spring Thymeleaf

@@ -1,4 +1,4 @@
-package best.skn.mail.services;
+package best.skn.mail.services.impls;
 
 //? Java::Library
 import best.skn.utils.message.Message;

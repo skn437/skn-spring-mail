@@ -7,4 +7,4 @@
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
  */
-package best.skn.mail.entities;
+package best.skn.mail.models;

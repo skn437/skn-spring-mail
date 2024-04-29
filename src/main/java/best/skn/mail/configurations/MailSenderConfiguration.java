@@ -1,7 +1,7 @@
 package best.skn.mail.configurations;
 
-//? Java::Source
 import best.skn.mail.services.MailSenderService;
+import best.skn.mail.services.impls.MailSenderServiceImpl;
 //? Java::Library
 import best.skn.utils.message.Message;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +27,7 @@ public class MailSenderConfiguration {
    */
   @Bean
   MailSenderService mailSenderService() {
-    MailSenderService mailSenderService = new MailSenderService();
+    MailSenderService mailSenderService = new MailSenderServiceImpl();
 
     System.out.printf(
       Message.successConsole(
