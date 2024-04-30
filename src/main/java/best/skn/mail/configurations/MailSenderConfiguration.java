@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * Mail sender configuration class for auto-configuring mail sender service
  *
  * @author SKN Shukhan
- * @version 2.0.0
+ * @version 2.0.1
  * @since 2024-03-15
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
