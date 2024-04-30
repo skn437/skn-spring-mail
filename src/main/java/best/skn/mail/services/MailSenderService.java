@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  * Mail Sender Service Interface
  *
  * @author SKN Shukhan
- * @version 2.0.0
+ * @version 2.0.1
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
@@ -24,7 +24,7 @@ public interface MailSenderService {
    *
    * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
    * @return a Mono of String as a response
-   * @throws MessagingException
+   * @throws MessagingException an exception is thrown if an error occurs while sending mail
    * @since v2.0.0
    */
   public Mono<String> sendMail(MailSenderRequestInfo info)
@@ -36,8 +36,8 @@ public interface MailSenderService {
    * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
    * @param stream MailSenderInputStream object that contains all the information regarding input stream
    * @return a Mono of String as a response
-   * @throws MessagingException
-   * @throws IOException
+   * @throws MessagingException an exception is thrown if an error occurs while sending mail
+   * @throws IOException an exception is thrown if an error occurs in file attachment
    * @since v2.0.0
    */
   public Mono<String> sendMailWithAttachment(
@@ -51,7 +51,7 @@ public interface MailSenderService {
    * @param info MailSenderRequestInfo object that contains all the information regarding sending mail
    * @param template MailSenderHtmlTemplate object that contains all the information regarding thymeleaf
    * @return a Mono of String as a response
-   * @throws MessagingException
+   * @throws MessagingException an exception is thrown if an error occurs while sending mail
    * @since v2.0.0
    */
   public Mono<String> sendMailWithHtmlTemplate(
@@ -66,8 +66,8 @@ public interface MailSenderService {
    * @param template MailSenderHtmlTemplate object that contains all the information regarding thymeleaf
    * @param stream MailSenderInputStream object that contains all the information regarding input stream
    * @return a Mono of String as a response
-   * @throws MessagingException
-   * @throws IOException
+   * @throws MessagingException an exception is thrown if an error occurs while sending mail
+   * @throws IOException an exception is thrown if an error occurs in file attachment
    * @since v2.0.0
    */
   public Mono<String> sendMailWithHtmlTemplateAndAttachment(

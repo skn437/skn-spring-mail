@@ -1,6 +1,6 @@
 # SKN Reactive Spring Boot Mail Library
 
-[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.0.0/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.0.0) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.0.1/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.0.1) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 &nbsp;
 
@@ -36,10 +36,10 @@
 - These 4 methods throw `MessagingException` if sending error occurs
 - 2 methods out of 4 also throw `IOException` if file attachment error occurs
 - The modes to send mails:
-  - Basic Mail
-  - Basic Mail With Attachment
-  - Mail With HTML Template
-  - Mail With HTML Template & Attachment
+  - Basic Mail (It throws `MessagingException`)
+  - Basic Mail With Attachment (It throws `MessagingException` & `IOException`)
+  - Mail With HTML Template (It throws `MessagingException`)
+  - Mail With HTML Template & Attachment (It throws `MessagingException` & `IOException`)
 
 ### **(2) `MailSenderRequestInfo` Class:**
 
@@ -79,7 +79,7 @@
 > <dependency>
 >   <groupId>best.skn</groupId>
 >   <artifactId>skn-spring-mail</artifactId>
->   <version>2.0.0</version>
+>   <version>2.0.1</version>
 > </dependency>
 > ```
 
