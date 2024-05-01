@@ -1,18 +1,17 @@
 # SKN Reactive Spring Boot Mail Library
 
-[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.0.1/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.0.1) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.0.2/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.0.2) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 &nbsp;
 
 ## **_JavaDocs:_**
 
-### Read the Javadoc for the main Service API: [MailSenderService API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/services/MailSenderService.html)
+### Read the Javadoc for the main Service APIs
 
-### Read the Javadoc for the mail info model API: [MailSenderRequestInfo API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/models/MailSenderRequestInfo.html)
-
-### Read the Javadoc for the mail stream model API: [MailSenderInputStream API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/models/MailSenderInputStream.html)
-
-### Read the Javadoc for the mail template model API: [MailSenderHtmlTemplate API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/models/MailSenderHtmlTemplate.html)
+- [MailSenderService API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/services/MailSenderService.html)
+- [MailSenderRequestInfo API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/models/MailSenderRequestInfo.html)
+- [MailSenderInputStream API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/models/MailSenderInputStream.html)
+- [MailSenderHtmlTemplate API](https://javadoc.io/doc/best.skn/skn-spring-mail/latest/best/skn/mail/models/MailSenderHtmlTemplate.html)
 
 &nbsp;
 
@@ -79,7 +78,7 @@
 > <dependency>
 >   <groupId>best.skn</groupId>
 >   <artifactId>skn-spring-mail</artifactId>
->   <version>2.0.1</version>
+>   <version>2.0.2</version>
 > </dependency>
 > ```
 
@@ -116,28 +115,53 @@
 > private MailSenderService mailSender;
 >
 > @PostMapping("/endpoint-for-basic-mail")
-> public Mono<String> sendMail(@RequestBody MailSenderRequestInfo info) throws MessagingException {
+> public Mono<String> sendMail(@RequestBody MailSenderRequestInfo info)
+> throws MessagingException {
 >   return this.mailSender.sendMail(info);
 > }
 >
 > @PostMapping("/endpoint-for-mail-with-attachment")
-> public Mono<String> sendMailWithAttachment(@RequestPart MailSenderRequestInfo info, @RequestPart MultipartFile file) throws MessagingException, IOException {
->   MailSenderInputStream stream = new MailSenderInputStream("output file location here", file.getInputStream());
+> public Mono<String> sendMailWithAttachment(
+>   @RequestPart MailSenderRequestInfo info,
+>   @RequestPart MultipartFile file
+> ) throws MessagingException, IOException {
+>   MailSenderInputStream stream = new MailSenderInputStream(
+>     "output file location here",
+>     file.getInputStream()
+>   );
+>
 >   return this.mailSender.sendMailWithAttachment(info, stream);
 > }
 >
 > @PostMapping("/endpoint-for-mail-with-html-template")
-> public Mono<String> sendMailWithHtmlTemplate(@RequestBody MailSenderRequestInfo info) throws MessagingException {
->   // you must have "mail.html" in `resources/templates` and the template must have a variable named `message`
->   MailSenderHtmlTemplate template = new MailSenderHtmlTemplate("mail.html", "message");
+> public Mono<String> sendMailWithHtmlTemplate(
+>   @RequestBody MailSenderRequestInfo info
+> ) throws MessagingException {
+>   // you must have "mail.html" in `resources/templates` and the template must have a `message` variable
+>   MailSenderHtmlTemplate template = new MailSenderHtmlTemplate(
+>     "mail.html",
+>     "message"
+>   );
+>
 >   return this.mailSender.sendMailWithHtmlTemplate(info, template);
 > }
 >
 > @PostMapping("/endpoint-for-mail-with-html-template-and-attachment")
-> public Mono<String> sendMailWithHtmlTemplateAndAttachment(@RequestPart MailSenderRequestInfo info, @RequestPart MultipartFile file) throws MessagingException, IOException {
->  // you must have "mail.html" in `resources/templates` and the template must have a variable named `message`
->   MailSenderHtmlTemplate template = new MailSenderHtmlTemplate("mail.html", "message");
->   MailSenderInputStream stream = new MailSenderInputStream("output file location here", file.getInputStream());
+> public Mono<String> sendMailWithHtmlTemplateAndAttachment(
+>   @RequestPart MailSenderRequestInfo info,
+>   @RequestPart MultipartFile file
+> ) throws MessagingException, IOException {
+>   // you must have "mail.html" in `resources/templates` and the template must have a `message` variable
+>   MailSenderHtmlTemplate template = new MailSenderHtmlTemplate(
+>     "mail.html",
+>     "message"
+>   );
+>
+>   MailSenderInputStream stream = new MailSenderInputStream(
+>     "output file location here",
+>     file.getInputStream()
+>   );
+>
 >   return this.mailSender.sendMailWithHtmlTemplateAndAttachment(info, template, stream);
 > }
 > ```
