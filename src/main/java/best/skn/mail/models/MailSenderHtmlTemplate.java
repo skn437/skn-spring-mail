@@ -1,24 +1,21 @@
 package best.skn.mail.models;
 
-//? Java::Library
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Mail sender HTML template class for processing proper thymeleaf HTML template info in controllers
  *
  * @author SKN Shukhan
- * @version 2.0.2
+ * @version 2.1.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class MailSenderHtmlTemplate {
 
   /**

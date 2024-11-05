@@ -1,25 +1,22 @@
 package best.skn.mail.models;
 
-//? Java::Library
 import java.io.InputStream;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Mail sender input stream class for processing proper input stream info in controllers
  *
  * @author SKN Shukhan
- * @version 2.0.2
+ * @version 2.1.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class MailSenderInputStream {
 
   /**

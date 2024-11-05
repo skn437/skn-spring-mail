@@ -1,11 +1,9 @@
 package best.skn.mail;
 
-//? Java::Source
 // import best.skn.mail.models.MailSenderHtmlTemplate;
 // import best.skn.mail.models.MailSenderInputStream;
 // import best.skn.mail.models.MailSenderRequestInfo;
 // import best.skn.mail.services.MailSenderService;
-//? Java::Library
 // import jakarta.mail.MessagingException;
 // import java.io.File;
 // import java.io.FileInputStream;

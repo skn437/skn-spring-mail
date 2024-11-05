@@ -1,6 +1,5 @@
 package best.skn.mail;
 
-//? Java::Library
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Application Class
  *
  * @author SKN Shukhan
- * @version 2.0.2
+ * @version 2.1.0
  * @since 07-03-2024
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents

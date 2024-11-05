@@ -4,7 +4,7 @@
 
 > Java
 
-[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.0.2/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.0.2) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.1.0/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.1.0) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 &nbsp;
 
@@ -66,8 +66,7 @@
 ## **_Requirements:_**
 
 - 💀 Minimum Java Version: `21`
-- 💀 Minimum Maven Version: `3.9.6`
-- 💀 Minimum Spring Boot Version: `3.2.5`
+- 💀 Minimum Spring Boot Version: `3.3.5`
 - 💀 Spring Web Flux (Reactive Spring Boot)
 - 💀 Spring Java Mail Sender
 - 💀 Spring Thymeleaf
@@ -82,14 +81,14 @@
 > <dependency>
 >   <groupId>best.skn</groupId>
 >   <artifactId>skn-spring-mail</artifactId>
->   <version>2.0.2</version>
+>   <version>2.1.0</version>
 > </dependency>
 > ```
 
-### Write the following in the terminal
+### For `Gradle`, inside `dependencies` block of `build.gradle.kts`, copy the following
 
-> ```zsh
-> mvn install
+> ```kotlin
+> implementation("best.skn:skn-spring-mail:2.1.0")
 > ```
 
 ### First create a configuration class
@@ -174,22 +173,20 @@
 
 > ```json
 > {
-> 	"from": "<sender email address>",
-> 	"to": "<receiver email address>",
-> 	"subject": "<mail subject>",
-> 	"body": "<mail body>"
+>   "from": "<sender email address>",
+>   "to": "<receiver email address>",
+>   "subject": "<mail subject>",
+>   "body": "<mail body>"
 > }
 > ```
 
 ### When requesting the API from `Postman` or `Frontend Framework` for mails with attachment, the request should be made with `form-data` format as it will be processed with `@RequestPart`
 
-### For instructions for `Gradle` & others: Visit [Maven Central](https://central.sonatype.com/artifact/best.skn/skn-spring-mail)
-
 &nbsp;
 
 ## **_Dedicated To:_**
 
-- 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life.
+- 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life. My best wishes will always be with you two. May you two always be happy.
 - 💯`My Parents`: The greatest treasures of my life ever.
 
 &nbsp;

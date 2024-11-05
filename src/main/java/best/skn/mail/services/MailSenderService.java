@@ -1,10 +1,8 @@
 package best.skn.mail.services;
 
-//? Java::Source
 import best.skn.mail.models.MailSenderHtmlTemplate;
 import best.skn.mail.models.MailSenderInputStream;
 import best.skn.mail.models.MailSenderRequestInfo;
-//? Java::Library
 import jakarta.mail.MessagingException;
 import java.io.IOException;
 import reactor.core.publisher.Mono;
@@ -13,7 +11,7 @@ import reactor.core.publisher.Mono;
  * Mail Sender Service Interface
  *
  * @author SKN Shukhan
- * @version 2.0.2
+ * @version 2.1.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
