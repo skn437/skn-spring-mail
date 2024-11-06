@@ -173,10 +173,10 @@
 
 > ```json
 > {
->   "from": "<sender email address>",
->   "to": "<receiver email address>",
->   "subject": "<mail subject>",
->   "body": "<mail body>"
+>   "from": "sender email address",
+>   "to": "receiver email address",
+>   "subject": "mail subject",
+>   "body": "mail body"
 > }
 > ```
 
