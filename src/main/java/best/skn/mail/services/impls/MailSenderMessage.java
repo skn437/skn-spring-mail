@@ -1,6 +1,5 @@
 package best.skn.mail.services.impls;
 
-//? Java::Library
 import best.skn.utils.message.Message;
 import reactor.core.publisher.Mono;
 
@@ -8,7 +7,7 @@ import reactor.core.publisher.Mono;
  * Mail Sender Output Message Class
  *
  * @author SKN Shukhan
- * @version 2.0.2
+ * @version 2.1.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
@@ -21,7 +20,7 @@ public class MailSenderMessage {
    * @since v2.0.0
    */
   private MailSenderMessage() {
-    Message.ThrowInstantiationError();
+    Message.throwInstantiationError();
   }
 
   /**
@@ -46,10 +45,7 @@ public class MailSenderMessage {
    * @since v2.0.0
    */
   protected static Mono<String> exceptionErrorMessaging(String error) {
-    String errorMessage = String.format(
-      "%s: Problem occured sending mail!",
-      error
-    );
+    String errorMessage = String.format("%s: Problem occured sending mail!", error);
 
     Mono<String> exceptionError = Message.errorMono(errorMessage);
     return exceptionError;
@@ -67,10 +63,7 @@ public class MailSenderMessage {
    * @since v2.0.0
    */
   protected static Mono<String> exceptionErrorIO(String error) {
-    String errorMessage = String.format(
-      "%s: Problem occured with file attachment!",
-      error
-    );
+    String errorMessage = String.format("%s: Problem occured with file attachment!", error);
 
     Mono<String> exceptionError = Message.errorMono(errorMessage);
     return exceptionError;
@@ -94,9 +87,7 @@ public class MailSenderMessage {
    * @since v2.0.0
    */
   protected static Mono<String> sendMailWithAttachmentSuccess() {
-    Mono<String> message = Message.successMono(
-      "Mail with attachment sent successfully!"
-    );
+    Mono<String> message = Message.successMono("Mail with attachment sent successfully!");
     return message;
   }
 
@@ -107,9 +98,7 @@ public class MailSenderMessage {
    * @since v2.0.0
    */
   protected static Mono<String> sendMailWithHtmlTemplateSuccess() {
-    Mono<String> message = Message.successMono(
-      "Mail with HTML template sent successfully!"
-    );
+    Mono<String> message = Message.successMono("Mail with HTML template sent successfully!");
     return message;
   }
 
@@ -120,9 +109,7 @@ public class MailSenderMessage {
    * @since v2.0.0
    */
   protected static Mono<String> sendMailWithHtmlTemplateAndAttachmentSuccess() {
-    Mono<String> message = Message.successMono(
-      "Mail with HTML template and attachment sent successfully!"
-    );
+    Mono<String> message = Message.successMono("Mail with HTML template and attachment sent successfully!");
     return message;
   }
 }
