@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
  * Mail Sender Service Interface
  *
  * @author SKN Shukhan
- * @version 2.1.0
+ * @version 2.2.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
@@ -25,8 +25,7 @@ public interface MailSenderService {
    * @throws MessagingException an exception is thrown if an error occurs while sending mail
    * @since v2.0.0
    */
-  public Mono<String> sendMail(MailSenderRequestInfo info)
-    throws MessagingException;
+  public Mono<String> sendMail(MailSenderRequestInfo info) throws MessagingException;
 
   /**
    * Method to send basic mail with attachment
@@ -38,10 +37,8 @@ public interface MailSenderService {
    * @throws IOException an exception is thrown if an error occurs in file attachment
    * @since v2.0.0
    */
-  public Mono<String> sendMailWithAttachment(
-    MailSenderRequestInfo info,
-    MailSenderInputStream stream
-  ) throws MessagingException, IOException;
+  public Mono<String> sendMailWithAttachment(MailSenderRequestInfo info, MailSenderInputStream stream)
+    throws MessagingException, IOException;
 
   /**
    * Method to send mail with HTML template
@@ -52,10 +49,8 @@ public interface MailSenderService {
    * @throws MessagingException an exception is thrown if an error occurs while sending mail
    * @since v2.0.0
    */
-  public Mono<String> sendMailWithHtmlTemplate(
-    MailSenderRequestInfo info,
-    MailSenderHtmlTemplate template
-  ) throws MessagingException;
+  public Mono<String> sendMailWithHtmlTemplate(MailSenderRequestInfo info, MailSenderHtmlTemplate template)
+    throws MessagingException;
 
   /**
    * Method to send mail with HTML template and attachment
