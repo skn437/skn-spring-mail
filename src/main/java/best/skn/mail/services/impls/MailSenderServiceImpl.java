@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
  * Mail Sender Service Implementation Class
  *
  * @author SKN Shukhan
- * @version 2.1.0
+ * @version 2.2.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
@@ -41,21 +41,13 @@ public class MailSenderServiceImpl implements MailSenderService {
   private TemplateEngine templateEngine;
 
   @Override
-  public Mono<String> sendMail(MailSenderRequestInfo info)
-    throws MessagingException {
+  public Mono<String> sendMail(MailSenderRequestInfo info) throws MessagingException {
     try {
-      if (
-        info.getFrom() == null ||
-        info.getTo() == null ||
-        info.getSubject() == null ||
-        info.getBody() == null
-      ) {
+      if (info.getFrom() == null || info.getTo() == null || info.getSubject() == null || info.getBody() == null) {
         return Mono.just(MailSenderMessage.parameterError());
       }
 
-      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(
-        this.mailSender
-      );
+      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(this.mailSender);
 
       mailSenderInitializer.sendMail(info);
 
@@ -66,10 +58,8 @@ public class MailSenderServiceImpl implements MailSenderService {
   }
 
   @Override
-  public Mono<String> sendMailWithAttachment(
-    MailSenderRequestInfo info,
-    MailSenderInputStream stream
-  ) throws MessagingException, IOException {
+  public Mono<String> sendMailWithAttachment(MailSenderRequestInfo info, MailSenderInputStream stream)
+    throws MessagingException, IOException {
     try {
       if (
         info.getFrom() == null ||
@@ -81,9 +71,7 @@ public class MailSenderServiceImpl implements MailSenderService {
         return Mono.just(MailSenderMessage.parameterError());
       }
 
-      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(
-        mailSender
-      );
+      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(mailSender);
 
       mailSenderInitializer.sendMailWithAttachment(info, stream);
 
@@ -96,10 +84,8 @@ public class MailSenderServiceImpl implements MailSenderService {
   }
 
   @Override
-  public Mono<String> sendMailWithHtmlTemplate(
-    MailSenderRequestInfo info,
-    MailSenderHtmlTemplate template
-  ) throws MessagingException {
+  public Mono<String> sendMailWithHtmlTemplate(MailSenderRequestInfo info, MailSenderHtmlTemplate template)
+    throws MessagingException {
     try {
       if (
         info.getFrom() == null ||
@@ -112,10 +98,7 @@ public class MailSenderServiceImpl implements MailSenderService {
         return Mono.just(MailSenderMessage.parameterError());
       }
 
-      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(
-        this.mailSender,
-        this.templateEngine
-      );
+      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(this.mailSender, this.templateEngine);
 
       mailSenderInitializer.sendMailWithHtmlTemplate(info, template);
 
@@ -144,16 +127,9 @@ public class MailSenderServiceImpl implements MailSenderService {
         return Mono.just(MailSenderMessage.parameterError());
       }
 
-      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(
-        this.mailSender,
-        this.templateEngine
-      );
+      MailSenderInitializer mailSenderInitializer = new MailSenderInitializer(this.mailSender, this.templateEngine);
 
-      mailSenderInitializer.sendMailWithHtmlTemplateAndAttachment(
-        info,
-        template,
-        stream
-      );
+      mailSenderInitializer.sendMailWithHtmlTemplateAndAttachment(info, template, stream);
 
       return MailSenderMessage.sendMailWithHtmlTemplateAndAttachmentSuccess();
     } catch (MessagingException e) {
