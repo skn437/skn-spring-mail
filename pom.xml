@@ -15,7 +15,7 @@
 
   <groupId>best.skn</groupId>
   <artifactId>skn-spring-mail</artifactId>
-  <version>2.2.0</version>
+  <version>2.3.0</version>
 
   <name>SKN Spring Mail</name>
   <description>A Simple Mail Service Library For Java Reactive Spring Boot</description>
@@ -117,13 +117,13 @@
     <dependency>
       <groupId>best.skn</groupId>
       <artifactId>skn-java-color</artifactId>
-      <version>1.4.0</version>
+      <version>1.5.0</version>
     </dependency>
 
     <dependency>
       <groupId>best.skn</groupId>
       <artifactId>skn-java-message</artifactId>
-      <version>1.2.0</version>
+      <version>1.3.0</version>
     </dependency>
   </dependencies>
 
@@ -208,8 +208,10 @@
         <extensions>true</extensions>
 
         <configuration>
+          <checksums>all</checksums>
           <publishingServerId>central</publishingServerId>
-          <waitUntil>uploaded</waitUntil>
+          <waitUntil>validated</waitUntil>
+          <autoPublish>true</autoPublish>
         </configuration>
       </plugin>
     </plugins>

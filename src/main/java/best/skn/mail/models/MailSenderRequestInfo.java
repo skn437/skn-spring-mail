@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Mail sender request info class for @RequestBody/@RequestPart annotated params in controllers
  *
  * @author SKN Shukhan
- * @version 2.2.0
+ * @version 2.3.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
