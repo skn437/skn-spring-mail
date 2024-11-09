@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
 
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=UTF-8"
+    />
+
+    <title>Email Template</title>
+
+    <link
+      href="/css/mail.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
-    <div>Hello, This is SKN! 👋</div>
+    <div class="greetings">Hello, This is SKN! 👋</div>
 
-    <div th:utext="${message}" style="color: red; font-weight: bold;"></div>
+    <p
+      th:utext="${message}"
+      class="message"
+    ></p>
   </body>
-
 </html>
