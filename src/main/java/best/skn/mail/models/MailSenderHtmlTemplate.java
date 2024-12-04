@@ -4,7 +4,7 @@ package best.skn.mail.models;
  * Mail sender HTML template class for processing proper thymeleaf HTML template info in controllers
  *
  * @author SKN Shukhan
- * @version 2.3.0
+ * @version 2.4.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
