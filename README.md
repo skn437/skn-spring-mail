@@ -4,7 +4,7 @@
 
 > Java
 
-[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.3.0/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.3.0) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/best.skn/skn-spring-mail)](https://central.sonatype.com/artifact/best.skn/skn-spring-mail) [![Javadoc](https://javadoc.io/badge2/best.skn/skn-spring-mail/2.4.0/javadoc.svg)](https://javadoc.io/doc/best.skn/skn-spring-mail/2.4.0) [![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 &nbsp;
 
@@ -81,14 +81,14 @@
 > <dependency>
 >   <groupId>best.skn</groupId>
 >   <artifactId>skn-spring-mail</artifactId>
->   <version>2.3.0</version>
+>   <version>2.4.0</version>
 > </dependency>
 > ```
 
 ### For `Gradle`, inside `dependencies` block of `build.gradle.kts`, copy the following
 
 > ```kotlin
-> implementation("best.skn:skn-spring-mail:2.3.0")
+> implementation("best.skn:skn-spring-mail:2.4.0")
 > ```
 
 ### First create a configuration class

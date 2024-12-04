@@ -6,7 +6,7 @@ import java.io.InputStream;
  * Mail sender input stream class for processing proper input stream info in controllers
  *
  * @author SKN Shukhan
- * @version 2.3.0
+ * @version 2.4.0
  * @since 2024-05-29
  * @use.case Spring Boot Reactive
  * @dedicated.to Logno, Atoshi and My Parents
