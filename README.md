@@ -1,6 +1,6 @@
 # SKN Reactive Spring Boot Mail Library
 
-<img width="150px" src="https://firebasestorage.googleapis.com/v0/b/skn-ultimate-project-la437.appspot.com/o/GitHub%20Library%2F04-Spring%20Boot-SSM.svg?alt=media&token=52fedfd3-921c-413b-992c-db9d84eecd2e" alt="java" />
+<img width="150px" src="./public/spring-mail.svg" alt="java" />
 
 > Java
 
@@ -188,8 +188,9 @@
 
 ## **_Dedicated To:_**
 
-- 👩‍🎨`Prodipta Das Logno` & 🧛‍♀️`Atoshi Sarker Prithula`: The two most special ladies of my life. My best wishes will always be with you two. May you two always be happy.
+- 👩‍🎨`Logno` & 🧛‍♀️`Atoshi`: The two most special ladies of my life. My best wishes will always be with you two.
 - 💯`My Parents`: The greatest treasures of my life ever.
+- 👩`Trina`: The lady who resides deep inside my heart. Our paths got separated, perhaps it was fate and I accepted it. But you are always in each and every moments of my life. May you be healthy and happy always.
 
 &nbsp;
 
